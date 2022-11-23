@@ -1,11 +1,7 @@
 import { User,Auth } from "../model";
-// import * as crypto from"crypto"
 import * as jwt from"jsonwebtoken"
 import {getResult}from"../components/try/getResults"
 import {hasheadora}from"../components/hasheaContraseña/hasheadora"
-// function getSHA256ofJSON (text:string){
-//     return crypto.createHash('sha256').update(text).digest('hex')
-//   }
 
 export  function colocaDatos(data,tipo:string){
     if(tipo=="auth"){

@@ -1,7 +1,6 @@
 import * as sgMail from "@sendgrid/mail";
 
 export async function sendEmailToUser(userEmail, name, newLocation, numeroDelUsuario) {
-    console.log(userEmail);
     
     await sgMail.setApiKey(process.env.API_KEY_SENDGRIND);
     const msg = {
@@ -12,13 +11,13 @@ export async function sendEmailToUser(userEmail, name, newLocation, numeroDelUsu
         html: `<strong> Tu mascota fue vista en ${newLocation}</strong>
         y su celular es  ${numeroDelUsuario}  `,
     }
-    const enviarMail = await sgMail.send(msg)
+     await sgMail.send(msg)
     .then(() => {
         console.log("email enviado");
-        return {email:true,enviarMail}
+        return true
 
     }) .catch((error) => {
-        return {email:false,enviarMail}
+        return false
 
       })
 }

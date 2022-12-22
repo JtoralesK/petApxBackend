@@ -130,11 +130,11 @@ app.get("/me/reportes",authMiddelwire,async(req,res)=>{
   }
 })
 app.post("/email",async(req,res)=>{  
-   const {emailUser,name,bio,cellphone} = req.body  ;
+   const {emailUser,name,bio,cellphone} = req.body  ;   
    if(!req.body){
     res.status(404).json({error:"faltan datos"})
   }else{
-    const outputData = await sendEmailToUser(emailUser,name,bio,cellphone);
+    const outputData = await sendEmailToUser(emailUser,name,bio,cellphone);    
     res.json(outputData);
   }
  
